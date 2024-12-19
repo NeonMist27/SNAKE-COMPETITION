@@ -5,68 +5,104 @@ permalink: /snake/
 ---
 
 <style>
-
-    body{
+    body {
+        margin: 0;
+        font-family: "Press Start 2P", sans-serif; /* Retro arcade font */
+        background: linear-gradient(135deg, #141e30, #243b55);
+        color: #ffffff;
+        text-align: center;
     }
-    .wrap{
-        margin-left: auto;
-        margin-right: auto;
+
+    .wrap {
+        margin: 0 auto;
     }
 
-    canvas{
+    canvas {
         display: none;
-        border-style: solid;
-        border-width: 10px;
-        border-color: #FFFFFF;
+        border: 10px solid;
+        border-image-source: linear-gradient(45deg, #ff6b6b, #f5af19);
+        border-image-slice: 1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        border-radius: 10px;
     }
-    canvas:focus{
+
+    canvas:focus {
         outline: none;
     }
 
-    /* All screens style */
-    #gameover p, #setting p, #menu p{
-        font-size: 20px;
+    /* Styling for menus and buttons */
+    #gameover p,
+    #setting p,
+    #menu p {
+        font-size: 1.2rem;
     }
 
-    #gameover a, #setting a, #menu a{
-        font-size: 30px;
-        display: block;
+    #gameover a,
+    #setting a,
+    #menu a {
+        font-size: 1.5rem;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        transition: 0.3s;
     }
 
-    #gameover a:hover, #setting a:hover, #menu a:hover{
+    #gameover a:hover,
+    #setting a:hover,
+    #menu a:hover {
         cursor: pointer;
+        background: #ffffff;
+        color: #000000;
+        box-shadow: 0 0 10px #ffffff;
     }
 
-    #gameover a:hover::before, #setting a:hover::before, #menu a:hover::before{
-        content: ">";
-        margin-right: 10px;
-    }
-
-    #menu{
-        display: block;
-    }
-
-    #gameover{
-        display: none;
-    }
-
-    #setting{
-        display: none;
-    }
-
-    #setting input{
-        display:none;
-    }
-
-    #setting label{
+    /* Settings toggles */
+    #setting label {
         cursor: pointer;
+        border: 1px solid #ffffff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 5px;
+        transition: 0.3s;
     }
 
-    #setting input:checked + label{
-        background-color: #FFF;
+    #setting label:hover {
+        background-color: #ffffff;
         color: #000;
     }
+
+    #setting input:checked + label {
+        background-color: #ff6b6b;
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* Responsive styling */
+    @media screen and (max-width: 600px) {
+        canvas {
+            width: 90%;
+            height: auto;
+        }
+
+        #gameover p,
+        #setting p,
+        #menu p {
+            font-size: 1rem;
+        }
+
+        #gameover a,
+        #setting a,
+        #menu a {
+            font-size: 1rem;
+        }
+    }
 </style>
+
 
 <h2>Snake</h2>
 <div class="container">
